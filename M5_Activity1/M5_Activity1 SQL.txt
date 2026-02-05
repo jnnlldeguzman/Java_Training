@@ -1,0 +1,28 @@
+CREATE TABLE students (
+ID SERIAL PRIMARY KEY,
+Name VARCHAR (50) NOT NULL,
+AGE INT,
+EMAIL VARCHAR (100) UNIQUE
+);
+
+
+CREATE TABLE COURSES (
+ID SERIAL PRIMARY KEY,
+STUDENT_ID INT NOT NULL,
+COURSE_NAME VARCHAR (50) NOT NULL,
+GRADE DECIMAL (5,2) NOT NULL,
+FOREIGN KEY (STUDENT_ID) REFERENCES students (ID)
+);
+
+INSERT INTO STUDENTS (name,age,email)
+VALUES 
+('Ailene Manansala', 26, 'Amp@gmail.com'),
+('Justene Pineda', 29, 'Jpineda@gmail.com'),
+('Robbie Santos', 18, 'Rob@gmail.com'),
+('Jacob Ignacio', 45, 'Jignacio@gmail.com');
+
+INSERT INTO COURSES (student_id,course_name,grade)
+VALUES 
+(1,'IT',99),
+(2,'SEAMAN',85.55),
+(3,'Culinary',89);
